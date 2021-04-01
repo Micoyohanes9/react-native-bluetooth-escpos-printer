@@ -345,12 +345,12 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
             sendDataByte(Command.ESC_Init);
             sendDataByte(Command.LF);
             sendDataByte(data);
-            sendDataByte(PrinterCommand.POS_Set_PrtAndFeedPaper(30));
-            sendDataByte(PrinterCommand.POS_Set_Cut(0));
+            // sendDataByte(PrinterCommand.POS_Set_PrtAndFeedPaper(30));
+            // sendDataByte(PrinterCommand.POS_Set_Cut(0));
             sendDataByte(PrinterCommand.POS_Set_PrtInit());
         }
     }
-    
+
     @ReactMethod
     public void printCut(String base64encodeStr, @Nullable  ReadableMap options) {
 
@@ -463,7 +463,7 @@ public class RNBluetoothEscposPrinterModule extends ReactContextBaseJavaModule
          }catch (Exception e){
             Log.d(TAG, e.getMessage());
         }
-    }    
+    }
 
     private boolean sendDataByte(byte[] data) {
         if (data==null || mService.getState() != BluetoothService.STATE_CONNECTED) {
